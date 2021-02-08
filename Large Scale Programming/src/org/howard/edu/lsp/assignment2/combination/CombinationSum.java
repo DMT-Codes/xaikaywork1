@@ -27,7 +27,7 @@ public class CombinationSum {
 	public ArrayList<ArrayList<Integer>> totalCombinations(int[] input, int target) {
 
 		ArrayList<ArrayList<Integer>> output = new ArrayList<ArrayList<Integer>>();
-		HashMap<Integer, ArrayList<Integer>> index = findIndex(input);
+		HashMap<Integer, ArrayList<Integer>> index = storeIndex(input);
 		Arrays.sort(input);
 		output = findCombinations(input, target, 0, new ArrayList<Integer>(),output);
 		output=findResult(index,output);
@@ -37,15 +37,12 @@ public class CombinationSum {
 	
 	
 	/**
-	 * This findIndexes method is used to create a HashMap 
-	 * where the keys are the integers in the input array and
-	 * the values are arrays of the indexes at which every occurrence 
-	 * of the integer is in the original input array.
+	 * This method creates a hashmap to store the value and corresponding index of the elements in the array
 	 * 
 	 * @param input - Array of values
 	 * @return - Hashmap of values 
 	 */
-	public HashMap<Integer, ArrayList<Integer>> findIndex(int[] input){
+	public HashMap<Integer, ArrayList<Integer>> storeIndex(int[] input){
 		HashMap<Integer, ArrayList<Integer>> indexes = new HashMap<>();
 		
 		for(int i = 0; i < input.length; i++) {
