@@ -3,9 +3,10 @@ package org.howard.edu.lsp.assignment6.integerset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import org.howard.edu.lsp.assignment4.implementation.EmptySetException;
 /**
- * Class used to solve the given problem
+ * 
+ * Classes implemented to make IntegerSet
  * 
  * @author Deante Taylor
  *
@@ -13,33 +14,33 @@ import java.util.List;
 public class IntegerSet {
 	
 	/**
-	 *This variable is used to store the results of the different solutions
+	 *Variable made to create the Set
 	 */
 	private List<Integer> set = new ArrayList<Integer>();
 	
 	/**
-	 * This method clears the current set
+	 * This clear method removes all values from the set
 	 */
-	
 	public void clear() {
-		set.clear();
+		set= new ArrayList<Integer>();
+
 	};
 	
 	/**
-	 * This length method gets the length of the set
+	 * This method returns the length of the set
 	 * 
-	 * @return - integer representing length of set
+	 * @return - An integer value that represents the length of the set
 	 */
 	public int length() {
-		int set_length = set.size();
-		return  set_length;
+		int set_len = set.size();
+		return  set_len;
 	};
 	
 	/**
-	 * This equals method determines whether two sets are equal
+	 * This equals method determines if two sets are equal to each other 
 	 * 
 	 * @param b - IntegerSet to be compared
-	 * @return - boolean representing whether two sets are equal
+	 * @return - boolean which indicates whether two sets are equal or not
 	 */
 	public boolean equals(IntegerSet b) {
 		if (this.length() == b.length()) {
@@ -58,8 +59,8 @@ public class IntegerSet {
 	/**
 	 * This contains method checks whether a set contains a value
 	 * 
-	 * @param value - Integer to search for in IntegerSet
-	 * @return - boolean representing whether the set contains the value
+	 * @param value - Value to search for in set
+	 * @return - Boolean representing whether the set contains the value
 	 */
 	public boolean contains(int value) {
 		for (int i = 0; i < set.size(); i++) {
@@ -71,15 +72,14 @@ public class IntegerSet {
 	};
 	
 	/**
-	 * This largest method checks for the largest value in the set.
-	 * Throws an exception of the set is empty
+	 * Returns the largest item in the set; Throws a EmptySetException if the set is empty 
 	 * 
 	 * @return - integer value representing the largest value in the set.
-	 * @throws IntegerSetException
+	 * @throws EmptySetException
 	 */
-	public int largest() throws IntegerSetException{
+	public int largest() throws EmptySetException {
 		if(set.size() == 0){
-			throw new IntegerSetException("IntegerSet is empty!");
+			throw new EmptySetException("IntegerSet is empty!");
 		}
 		
 		int max_val = 0;
@@ -93,15 +93,14 @@ public class IntegerSet {
 	
 	
 	/**
-	 * This smallest method checks for the smallest value in the set.
-	 * Throws an exception of the set is empty
+	 *Returns the smallest item in the set; Throws a IntegerSetException if the set is empty
 	 * 
 	 * @return - integer value representing the smallest value in the set.
-	 * @throws IntegerSetException
+	 * @throws EmptySetException
 	 */
-	public int smallest() throws IntegerSetException{
+	public int smallest() throws EmptySetException{
 		if(set.size() == 0){
-			throw new IntegerSetException("IntegerSet is empty!");
+			throw new EmptySetException("IntegerSet is empty!");
 		}
 		
 		int min_val = set.get(0);
@@ -115,7 +114,7 @@ public class IntegerSet {
 	
 	
 	/**
-	 * This add method adds integer values to the set.
+	 * This add method adds integer values to set if they are not already in it
 	 * 
 	 * @param item - integer value to add to the set
 	 */
@@ -127,9 +126,9 @@ public class IntegerSet {
 	
 	
 	/**
-	 * This add method adds integer values to the set.
+	 * This remove method removes an item from the set or does nothing if not there
 	 * 
-	 * @param item - integer value to be added to set.
+	 * @param item - integer value to be removed
 	 */
 	public void remove(int item) {
 		if (this.contains(item)) {
@@ -164,7 +163,6 @@ public class IntegerSet {
 	public void intersect(IntegerSet intSetb) {
 		List<Integer> set_b = intSetb.getAllElements();
 		List<Integer> new_set = new ArrayList<Integer>();
-		
 		for (int i = 0; i < set_b.size(); i++) {
 			if (this.contains(set_b.get(i))) {
 				new_set.add(set_b.get(i));
@@ -177,7 +175,7 @@ public class IntegerSet {
 	/**
 	 * This diff method finds the difference of two sets.
 	 * 
-	 * @param intSetb - IntegerSet to do difference with.
+	 * @param intSetb - IntegerSet to find difference of
 	 */
 	public void diff(IntegerSet intSetb) {
 		List<Integer> set_b = intSetb.getAllElements();
@@ -204,12 +202,12 @@ public class IntegerSet {
 	 * @return - String representing the set
 	 */
 	public String toString() {
-		String printedList = set.toString();
-		return printedList;
+		String stringList = set.toString();
+		return stringList;
 	};
 	
 	/**
-	 * This getAllElements method gets all the elements in the IntegerSet and places them into an array
+	 * This getAllElements method returns the all the values of the set
 	 * 
 	 * @return - List representing the IntegerSet
 	 */
