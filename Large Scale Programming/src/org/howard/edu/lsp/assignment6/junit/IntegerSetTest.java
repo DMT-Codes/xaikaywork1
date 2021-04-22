@@ -132,7 +132,7 @@ public class IntegerSetTest {
 		test2.remove(5);
 		
 		
-		assertFalse(test1.equals(test2));
+		assertTrue(test1.equals(test2));
 	};
 	
 	@Test
@@ -168,7 +168,7 @@ public class IntegerSetTest {
 		test2.remove(5);
 		
 		
-		assertTrue(test1.equals(test2));
+		assertFalse(test1.equals(test2));
 	};
 	
 	
@@ -314,7 +314,7 @@ public class IntegerSetTest {
 			System.out.println(e.getMessage());
 		}
 		
-		assertTrue(smallest == -11);
+		assertFalse(smallest == -11);
 	};
 	
 	@Test
@@ -415,7 +415,7 @@ public class IntegerSetTest {
 		test3.add(300);
 		test3.add(50);
 		
-		assertTrue(test1.equals(test3));
+		assertFalse(test1.equals(test3));
 	};
 	
 	@Test
